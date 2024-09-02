@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <h1>Explore Event Delegate</h1>
+<section>
+  <ul id="list-container">
+    <li class="item">Lorem ipsum dolor.</li>
+    <li class="item">Ab aperiam, odio?</li>
+    <li class="item">Facilis, quia sequi!</li>
+    <li class="item">Deserunt, sed voluptate.</li>
+    <li class="item">Aspernatur, praesentium, quam.</li>
+    <li class="item">Et recusandae, voluptatum!</li>
+  </ul>
+  <button id="btn-add-item">Add Item</button>
+</section>
+    <script>
+        // const items = document.getElementsByClassName('item')
+        // for (const item of items){
+        //   item.addEventListener('click',function (event) {
+        //     event.target.parentNode.removeChild(event.target)
+        //   })
+        // }
+
+        document.getElementById('list-container').addEventListener('click', function (event) {
+            event.target.parentNode.removeChild(event.target)
+        })
+
+        document.getElementById('btn-add-item').addEventListener('click', function () {
+            const listContainer = document.getElementById('list-container')
+
+            const li = document.createElement('li')
+            li.innerText = 'alamin added this li bt js '
+            li.classList.add('item')
+            listContainer.appendChild(li)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buuble-event</title>
+</head>
+<body>
+    <h1>Exploring event bubble</h1>
+    <section>
+        <ul>
+            <li id="item-1">Lorem ipsum.</li>
+            <li id="item-2">Porro, reiciendis.</li>
+            <li id="item-3">Error, sed.</li>
+            <li id="item-4">Nesciunt, veritatis.</li>
+            <li id="item-5">Repudiandae, ut.</li>
+            <li id="item-6">Nesciunt, ullam.</li>
+        </ul>
+
+        <script>
+            document.getElementById('item-2').addEventListener('click', function (){
+                console.log('Item-2 clicked')
+            })
+        </script>
+    </section>
+</body>
+</html>
