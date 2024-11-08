@@ -1,43 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Js Dom Summary</title>
+  <meta charset="UTF-8">
+  <title>JS DOM Summary</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Final Dom Event Handler</h1>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
 
-  <h3 id="handler-status">Default text </h3>
-  <p id="input-text-display">default input text </p>
-  <input id="input-filed" type="text">
-  <button id="btn-update">update</button>
-  <br>
-  <br>
-  <button onclick="handleOnClick()">Handle Event by Add onclick function </button>
-  <br><br>
-  <button id="event-listener">Handle event by add event listener </button>
+<!-- Container -->
+<div class="w-full max-w-md bg-white shadow-lg rounded-xl p-8 space-y-6">
+  <!-- Heading -->
+  <h1 class="text-3xl font-bold text-center text-blue-600">Final DOM Event Handler</h1>
 
-    <script>
-      function handleOnClick() {
-        const handleStatus = document.getElementById('handler-status')
-        handleStatus.innerText = 'handled by function attached on onclick attribute '
-      }
+  <!-- Status Display -->
+  <h3 id="handler-status" class="text-lg font-semibold text-gray-700 bg-blue-50 p-3 rounded-md">
+    Default text
+  </h3>
 
-      //option 2
-      document.getElementById('event-listener').addEventListener('click', function () {
-        const handlerStatus = document.getElementById('handler-status')
-        handlerStatus.innerText = 'text updated by add event listener button '
-      })
-      //option 2: recap
-      document.getElementById('btn-update').addEventListener('click', function () {
-        const inputFiled = document.getElementById('input-filed')
-        const inputText = inputFiled.value;
+  <!-- Input Text Display -->
+  <p id="input-text-display" class="text-gray-600 text-sm bg-gray-50 p-2 rounded-md">
+    Default input text
+  </p>
 
-        const p = document.getElementById('input-text-display')
-        p.innerText = inputText;
-        inputFiled.value = '';
-      })
+  <!-- Input Field and Update Button -->
+  <div class="flex items-center space-x-4">
+    <input id="input-filed" type="text" placeholder="Enter text"
+           class="w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500" />
+    <button id="btn-update"
+            class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-300">
+      Update
+    </button>
+  </div>
 
-    </script>
+  <!-- Event Buttons -->
+  <div class="space-y-4">
+    <button onclick="handleOnClick()"
+            class="w-full bg-yellow-500 text-white font-semibold py-3 rounded-md hover:bg-yellow-600 transition duration-300">
+      Handle Event by Onclick Function
+    </button>
+    <button id="event-listener"
+            class="w-full bg-purple-500 text-white font-semibold py-3 rounded-md hover:bg-purple-600 transition duration-300">
+      Handle Event by Add Event Listener
+    </button>
+  </div>
+</div>
+
+<script>
+  // Option 1: Handle Event by OnClick Function
+  function handleOnClick() {
+    const handleStatus = document.getElementById('handler-status');
+    handleStatus.innerText = 'Handled by function attached on onclick attribute';
+  }
+
+  // Option 2: Handle Event by Add Event Listener
+  document.getElementById('event-listener').addEventListener('click', function () {
+    const handlerStatus = document.getElementById('handler-status');
+    handlerStatus.innerText = 'Text updated by add event listener button';
+  });
+
+  // Option 3: Update Text from Input Field
+  document.getElementById('btn-update').addEventListener('click', function () {
+    const inputFiled = document.getElementById('input-filed');
+    const inputText = inputFiled.value;
+
+    const p = document.getElementById('input-text-display');
+    p.innerText = inputText;
+    inputFiled.value = '';
+  });
+</script>
 </body>
 </html>
