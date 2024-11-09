@@ -2,30 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Summary: Event Handler </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary: Event Handler</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Explore Dom Events</h1>
-    <button onclick="makeGreen()">Make Green</button>
-    <button onclick="makeRed()">Make Red</button>
-    <button id="make-yellow">Make yellow</button>
-    <br>
-    <input type="text" id="user-email">
-    <script>
-      function makeGreen (){
-        document.body.style.backgroundColor = 'green'
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
 
-      }
-      function makeRed (){
-        document.body.style.backgroundColor = 'red'
-      }
+<!-- Container -->
+<div class="w-full max-w-md bg-white rounded-lg shadow-lg p-6 space-y-6">
+    <!-- Heading -->
+    <h1 class="text-2xl md:text-3xl font-bold text-center text-blue-700">Explore DOM Events</h1>
 
-      document.getElementById('make-yellow').addEventListener('click',function () {
-          document.body.style.backgroundColor = 'yellow'
-      })
-      document.getElementById('user-email').addEventListener('keyup',function (event) {
-          console.log(event.target.value)
-      })
-    </script>
+    <!-- Buttons -->
+    <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+        <button onclick="makeGreen()" class="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition duration-300">Make Green</button>
+        <button onclick="makeRed()" class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300">Make Red</button>
+        <button id="make-yellow" class="w-full bg-yellow-500 text-white py-2 rounded-md hover:bg-yellow-600 transition duration-300">Make Yellow</button>
+        <button onclick="makeBlue()" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300">Make Blue</button>
+    </div>
+
+    <!-- Input Field -->
+    <div>
+        <input type="email" id="user-email" placeholder="Enter your email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+</div>
+
+<script>
+    function makeGreen() {
+        document.body.style.backgroundColor = 'green';
+    }
+    function makeRed() {
+        document.body.style.backgroundColor = 'red';
+    }
+    function makeBlue() {
+        document.body.style.backgroundColor = 'blue';
+    }
+    document.getElementById('make-yellow').addEventListener('click', function () {
+        document.body.style.backgroundColor = 'yellow';
+    });
+    document.getElementById('user-email').addEventListener('keyup', function (event) {
+        console.log(event.target.value);
+    });
+</script>
 </body>
 </html>
